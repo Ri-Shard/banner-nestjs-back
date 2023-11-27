@@ -5,7 +5,7 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 @Schema()
 export class Banner extends Document {
     @Prop({ type: String, required: true})
-    _id: string;
+    id: string;
 
     @Prop({ type: String })
     imagen: string;

@@ -11,7 +11,7 @@ export class BannerRepository {
 
     async createBanner(createBannerDto: CreateBannerDto, session: ClientSession) {
         let banner = new this.bannerModel({
-            _id:createBannerDto._id,
+            id:createBannerDto.id,
             imagen: createBannerDto.imagen,
             texto:createBannerDto.texto,
             titulo:createBannerDto.titulo
@@ -38,7 +38,7 @@ export class BannerRepository {
         let banner;
         try {
             banner = await this.bannerModel
-                .findOneAndUpdate({ _id: updateBanner._id }, updateData, {
+                .findOneAndUpdate({ id: updateBanner.id }, updateData, {
                     new: true,
                 })
                 .session(session)
