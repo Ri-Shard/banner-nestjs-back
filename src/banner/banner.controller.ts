@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Get, HttpStatus, Param, Post, Put, Query, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, HttpStatus, Param, Post, Put, Query, Res, Delete  } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Response } from 'express';
 import { Connection, Schema as MongooseSchema } from 'mongoose';
@@ -55,6 +55,10 @@ export class BannerController {
   async getAllBanner(@Query() getQueryDto: GetQueryDto, @Res() res: any) {
       const storages: any = await this.bannerService.getBanners(getQueryDto);
       return res.status(HttpStatus.OK).send(storages);
+  }
+  @Delete('delete/:id')
+  remove(@Param('id') id: string) {
+    return this.bannerService.remove(id);
   }
 
 }

@@ -73,4 +73,11 @@ export class BannerRepository {
 
         return banner;
     }
+
+    remove(id: string) {
+        // return this.bannerModel.findByIdAndDelete(id);
+        const filter  = { id: id };
+        return this.bannerModel.findOneAndDelete(filter);
+
+      }
 }

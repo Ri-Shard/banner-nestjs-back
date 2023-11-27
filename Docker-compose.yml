@@ -1,0 +1,19 @@
+version: "3.1"
+
+services:
+  backend-banner:
+    container_name: backend_banner
+    image: camilacharry/backend_banner
+    build: .
+    environment:
+      MONGO_HOST: "camilacharrycluster.c3rslyy.mongodb.net"
+      MONGO_PASSWORD: "r5Flm02jOzCkwrem" 
+      MONGO_USER: "Rishard"
+      MONGO_DATABASE: "CamilacharryCluster"
+      PORT: "4003"
+    networks:
+      - camilacharrynet
+networks:
+  camilacharrynet:
+    external: true
+  

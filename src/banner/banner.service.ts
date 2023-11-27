@@ -25,4 +25,11 @@ export class BannerService {
     async updateBanner(UpdateBannerDto: UpdateBannerDto, session: ClientSession) {
         return await this.bannerRepository.updateBanner(UpdateBannerDto, session);
     }
+    async remove(id: string) {
+       
+    
+        const deleted = await this.bannerRepository.remove(id);
+        return deleted;
+    
+      }
 }
